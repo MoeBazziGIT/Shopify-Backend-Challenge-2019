@@ -16,13 +16,13 @@ router.register('products', product_views.ProductView, base_name='products')
 
 # /carts/ --> will get all carts in the database
 # /carts/<cart_id>/ --> will get a specific cart
-# router.register('carts', cart_views.CartView, base_name='carts')
+router.register('carts', cart_views.CartView, base_name='carts')
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
-    # path('carts/', include('cart.urls', namespace='carts'))
+    path('carts/', include('cart.urls', namespace='carts'))
 ]
 
     # the reason we include cart.urls is because this app has some extra functionality with

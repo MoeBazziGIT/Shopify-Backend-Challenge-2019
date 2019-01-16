@@ -156,17 +156,12 @@ def cart_checkout(request, **kwargs):
             # looping through the carts products and counting how much of this product is in the cart.
             # This loop is also assigning back the correct inventory_count for each product
             # using the all_inventory_counts dictionary above
-            found_product = False
             for thing in cart.products.all():
-                # This conditional statment is checking if we have found the product
-                # that has no inventory, therefore we do not need to proceed further into the cart
-                if thing.product.pk != item.product.pk and found_product:
-                    break
                 if thing.product.pk == item.product.pk:
                     product_quantity += 1
-                    found_product = True
-                thing.product.inventory_count = all_inventory_counts[thing.product.title]
-                thing.product.save()
+                if thing.product.title in all_inventory_counts:
+                    thing.product.inventory_count = all_inventory_counts[thing.product.title]
+                    thing.product.save()
 
             # returning error response message that the checkout process failed and why
             response = {'Error': f'only {all_inventory_counts[item.product.title]} of {item.product.title}(s) are available. To complete order, remove {product_quantity - all_inventory_counts[item.product.title]} {item.product.title}(s) from cart, then checkout again'}

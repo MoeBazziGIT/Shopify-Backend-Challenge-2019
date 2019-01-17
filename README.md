@@ -11,6 +11,7 @@ git clone https://github.com/MoeBazziGIT/Shopify-Backend-Challenge-2019.git
 ```
 
 3. Create a virtual enviroment:
+
 For linux and Macos:
 ```
 python3 -m venv myvenv

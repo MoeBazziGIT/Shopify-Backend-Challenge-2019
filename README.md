@@ -78,7 +78,7 @@ python manage.py runserver
 
 ## Interacting With The API
 
-This API allows you to fetch products and carts, all at once or one at a time. You can also add and remove products from the carts as well as checkout a specific cart. You can only fetch the products that are in stock and/or fetch products in a certain category ie. clothes. Let's show you how to do all this.
+This API allows you to fetch products and carts, all at once or one at a time. You can also add and remove products from the carts as well as checkout a specific cart. You can also exclusively fetch the products that are in stock and/or fetch products in a certain category ie. clothes. Let's show you how to do all this.
 
 **1.Products**
 

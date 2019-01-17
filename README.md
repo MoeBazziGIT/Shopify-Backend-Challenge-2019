@@ -40,21 +40,22 @@ You should now see in your terminal:
 ```
 
 5. Now its time to download Django and the Django REST framework:
-First Django:
+
+-First Django:
 ```
 pip install Django
 ```
-6. Now the Django REST
+-Now the Django REST
 ```
 pip install djangorestframework
 ```
 
-7. Migrate the database:
+6. Migrate the database:
 ```
 python manage.py migrate
 ```
 
-8. Create a Super User:
+7. Create a Super User:
 *Note: creating a SuperUser is only needed if you want to go to the admin panel and add or modify the data tables*
 
 ```
@@ -62,7 +63,8 @@ python manage.py createsuperuser
 ```
 *It will ask to create a username and password, email is not required*
 
-9. Now you can launch the server:
+8. Now you can launch the server:
 ```
 python manage.py runserver
 ```
+9. Great Job! You're all set. Now let's teach you how to interact with the project.

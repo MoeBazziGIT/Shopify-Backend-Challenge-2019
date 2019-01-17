@@ -1,6 +1,10 @@
 # Shopify Backend Challenge 2019
 A Django REST API of the barebones of a an online marketplace used for Shopify's 2019 backend intern challenge.
 
+## Table of Contents
+**[Getting Started](#Getting-Started)** <br>
+**[Interacting With The API](#Interacting-With-The-API)**
+
 ## Getting Started
 **1. To get started, you must have at least python 3.6 and Pip install installed on your computer.**
 

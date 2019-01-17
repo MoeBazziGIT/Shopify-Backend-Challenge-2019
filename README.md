@@ -62,7 +62,7 @@ python manage.py migrate
 ```
 python manage.py createsuperuser
 ```
-    *It will ask to create a username and password, email is not required*
+   *It will ask to create a username and password, email is not required*
 
 8. Now you can launch the server:
 ```

@@ -56,12 +56,13 @@ python manage.py migrate
 ```
 
 7. Create a Super User:
+
 *Note: creating a SuperUser is only needed if you want to go to the admin panel and add or modify the data tables*
 
 ```
 python manage.py createsuperuser
 ```
-*It will ask to create a username and password, email is not required*
+    *It will ask to create a username and password, email is not required*
 
 8. Now you can launch the server:
 ```

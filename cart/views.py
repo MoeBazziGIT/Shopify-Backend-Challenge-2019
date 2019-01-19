@@ -91,8 +91,6 @@ def remove_product(request, **kwargs):
         product_to_delete = CartProduct.objects.filter(product=product).first()
 
         if cart and product_to_delete in cart.products.all():
-            # removing the CartProduct instance from this cart
-            # cart.products.remove(product_to_delete)
 
             # deleting this CartProduct instance from databse as there is no need for it anymore
             product_to_delete.delete()

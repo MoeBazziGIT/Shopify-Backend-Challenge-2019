@@ -34,7 +34,7 @@ $ python -m venv myvenv
 
   -Linux or MacOs:
 ```
-$ source myenv/bin/activate
+$ source myvenv/bin/activate
 ```
 
   -Windows:

@@ -30,7 +30,7 @@ $ python3 -m venv myvenv
 $ python -m venv myvenv
 ```
 
-**4. You can now activate the virtual environment:** 
+**4. You can now activate the virtual environment:**
 
   -Linux or MacOs:
 ```
@@ -145,7 +145,7 @@ This API allows you to fetch products and carts, all at once or one at a time. Y
 ```
 /carts/<cart_id>/checkout
 ```
--Note: Once a cart has been checked out, it cannot be checkout again nor have items removed or added to it. 
+-Note: Once a cart has been checked out, it cannot be checkout again nor have items removed or added to it.
 
 
 -Fetching only carts that have been checked out:
@@ -162,5 +162,3 @@ $ python manage.py test cart
 ```
 
 ## Thank you!
-
-

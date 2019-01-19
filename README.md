@@ -57,6 +57,12 @@ $ pip install Django
 $ pip install djangorestframework
 ```
 
+-Now cd into the project
+
+```
+$ cd Shopify-Backend-Challenge-2019
+```
+
 **6. Migrate the database:**
 ```
 $ python manage.py migrate

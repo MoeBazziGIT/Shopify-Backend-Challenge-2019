@@ -145,8 +145,7 @@ This API allows you to fetch products and carts, all at once or one at a time. Y
 ```
 /carts/<cart_id>/checkout
 ```
-<<<<<<< HEAD
--Note: Once a cart has been checked out, it cannot be checkout again nor have items removed or added to it. 
+-Note: Once a cart has been checked out, it cannot be checkout again nor have items removed or added to it.
 =======
 -Note: Once a cart has been checked out, it cannot be checkout again nor have items removed or added to it.
 >>>>>>> master
@@ -166,8 +165,5 @@ $ python manage.py test cart
 ```
 
 ## Thank you!
-<<<<<<< HEAD
-
-
 =======
 >>>>>>> master

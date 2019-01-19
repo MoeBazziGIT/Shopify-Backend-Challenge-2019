@@ -21,7 +21,7 @@ class CartView(viewsets.ModelViewSet):
     def get_queryset(self):
         completed = self.request.query_params.get('completed', None)
         # if no params in url, complete is set to None and ignored
-        if completed:
+        if completed and completed.lower() == 'true':
             carts = Cart.objects.filter(completed=True)
         else:
             carts = Cart.objects.all()
@@ -30,7 +30,7 @@ class CartView(viewsets.ModelViewSet):
 
 # function based view for adding a product to cart
 @api_view()
-def add_item(request, **kwargs):
+def add_product(request, **kwargs):
     if request.method == 'GET':
 
         # retrive cart and product we want to add
@@ -77,7 +77,7 @@ def add_item(request, **kwargs):
 
 # function based view for removing a product from the cart
 @api_view()
-def remove_item(request, **kwargs):
+def remove_product(request, **kwargs):
     if request.method == 'GET':
         cart              = Cart.objects.filter(pk=kwargs.get('cart_pk')).first()
         product           = Product.objects.filter(pk=kwargs.get('product_pk')).first()
@@ -90,17 +90,16 @@ def remove_item(request, **kwargs):
         # retrieving the already created instance of CartProduct from this cart
         product_to_delete = CartProduct.objects.filter(product=product).first()
 
-        if cart and product_to_delete:
+        if cart and product_to_delete in cart.products.all():
             # removing the CartProduct instance from this cart
-            cart.products.remove(product_to_delete)
-            cart.save()
+            # cart.products.remove(product_to_delete)
+
+            # deleting this CartProduct instance from databse as there is no need for it anymore
+            product_to_delete.delete()
 
             # subtracting product price from cart total
             cart.update_cart_total(product, 'remove')
             cart.save()
-
-            # deleting this CartProduct instance from databse as there is no need for it anymore
-            product_to_delete.delete()
 
             # return response of success message in json
             response = {'Success': f'{product.title} removed from cart #{cart.pk}'}
@@ -110,7 +109,7 @@ def remove_item(request, **kwargs):
         else:
             if not cart:
                 response = {'Error': f'No cart with id #{kwargs.get("cart_pk")}'}
-            elif not product_to_delete:
+            else:
                 response = {'Error': f'No product with id #{kwargs.get("product_pk")} in cart #{kwargs.get("cart_pk")}'}
             return Response(response, status=status.HTTP_404_NOT_FOUND)
 
@@ -125,7 +124,7 @@ def cart_checkout(request, **kwargs):
     # if the cart requested does not exist
     if not cart:
         response = {'Error': f'cart #{kwargs.get("cart_pk")} does not exist'}
-        return Response(response, status=status.HTTP_403_FORBIDDEN)
+        return Response(response, status=status.HTTP_404_NOT_FOUND)
 
     # once a cart has been already checked out, it cant happen again
     if cart.completed:

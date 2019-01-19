@@ -8,6 +8,6 @@ app_name = 'carts'
 # these are function based views for doing specific actions(adding/removing products from cart, completing cart)
 urlpatterns = [
     path('<int:cart_pk>/checkout/', views.cart_checkout, name='checkout'),
-    path('<int:cart_pk>/add/<int:product_pk>/', views.add_item, name='add_item'),
-    path('<int:cart_pk>/remove/<int:product_pk>/', views.remove_item, name='remove_item'),
+    path('<int:cart_pk>/add/<int:product_pk>/', views.add_product, name='add_item'),
+    path('<int:cart_pk>/remove/<int:product_pk>/', views.remove_product, name='remove_item'),
 ]

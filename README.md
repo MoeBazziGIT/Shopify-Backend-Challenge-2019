@@ -57,6 +57,12 @@ $ pip install Django
 $ pip install djangorestframework
 ```
 
+-Now cd into the project
+
+```
+$ cd Shopify-Backend-Challenge-2019
+```
+
 **6. Migrate the database:**
 ```
 $ python manage.py migrate
@@ -146,9 +152,6 @@ This API allows you to fetch products and carts, all at once or one at a time. Y
 /carts/<cart_id>/checkout
 ```
 -Note: Once a cart has been checked out, it cannot be checkout again nor have items removed or added to it.
-=======
--Note: Once a cart has been checked out, it cannot be checkout again nor have items removed or added to it.
->>>>>>> master
 
 
 -Fetching only carts that have been checked out:
@@ -165,5 +168,3 @@ $ python manage.py test cart
 ```
 
 ## Thank you!
-=======
->>>>>>> master
